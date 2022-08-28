@@ -113,7 +113,8 @@ export const WalletOptions: React.FC<WalletOptionsProps> = ({
                 selected={selected ? "selected-wallet" : ""}
                 deprecated={deprecated ? " deprecated-wallet" : ""}
                 onClick={handleWalletClick(module)}
-              />
+                isMobile={false}
+                getWallet={false}              />
             );
 
             return result;
@@ -139,7 +140,9 @@ export const WalletOptions: React.FC<WalletOptionsProps> = ({
                   selected={selected ? "selected-wallet" : ""}
                   deprecated={deprecated ? " deprecated-wallet" : ""}
                   onClick={handleWalletClick(module)}
-                />
+                  isMobile={false}
+                  getWallet={false}
+                  />
               );
 
               return result;

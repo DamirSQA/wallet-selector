@@ -8,12 +8,14 @@ interface WalletHomeProps {
   getWallet: boolean;
   onClick: () => void;
   getThreeWallets: Array<ModuleState>;
+  isMobile: boolean
 }
 
 export const WalletHome: React.FC<WalletHomeProps> = ({
   getWallet,
   getThreeWallets,
   onClick,
+  isMobile
 }) => {
   return (
     <div>
@@ -22,6 +24,8 @@ export const WalletHome: React.FC<WalletHomeProps> = ({
           {getThreeWallets.map((value, key) => {
             return (
               <SingleWallet
+                isMobile = {isMobile}
+                getWallet={getWallet}
                 id={value.id}
                 iconUrl={value.metadata.iconUrl}
                 title={value.metadata.name}
@@ -38,7 +42,7 @@ export const WalletHome: React.FC<WalletHomeProps> = ({
           })}
         </div>
       ) : (
-        <div>
+        !isMobile ? <div>
           <WhatWallet
             title="Secure & Manage Your Digital Assets"
             description="Safely store and transfer your crypto and NFTs."
@@ -53,7 +57,21 @@ export const WalletHome: React.FC<WalletHomeProps> = ({
             Get a Wallet
           </button>
         </div>
-      )}
+          :
+
+          <div>
+            <p className="content">
+              Use a wallet to secure and manage your NEAR assets, and to log in to any NEAR app without the need for usernames and passwords.
+            </p>
+
+            <button className={"middleButton"} onClick={onClick}>
+              Get a Wallet
+            </button>
+          </div>
+      )
+
+
+      }
     </div>
   );
 };

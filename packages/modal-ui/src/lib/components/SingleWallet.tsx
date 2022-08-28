@@ -11,6 +11,8 @@ interface SingleWalletProps {
   selected: string;
   deprecated: string;
   onClick: () => void;
+  isMobile: boolean
+  getWallet: boolean
 }
 
 export const SingleWallet: React.FC<SingleWalletProps> = ({
@@ -23,10 +25,12 @@ export const SingleWallet: React.FC<SingleWalletProps> = ({
   deprecated,
   isLocationSidebar,
   onClick,
+  getWallet,
+  isMobile
 }) => {
   return (
     <div
-      className={`single-wallet ${selected} ${deprecated} ${
+      className={` ${(getWallet && isMobile) ? "single-wallet-get" : "single-wallet"} ${selected} ${deprecated} ${
         isLocationSidebar ? "sidebar  " : ""
       } `}
       key={key}

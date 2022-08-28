@@ -48,6 +48,21 @@ export const Modal: React.FC<ModalProps> = ({
     []
   );
 
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    window.innerWidth > 767 ? setIsMobile(false) : setIsMobile(true)
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      window.innerWidth > 767 ? setIsMobile(false) : setIsMobile(true)
+      }
+      window.addEventListener('resize', handleResize)
+        return () => {
+        window.removeEventListener('resize', handleResize)
+        }
+  }, [])
+
   useEffect(() => {
     setRoute({
       name: "WalletOptions",
@@ -199,6 +214,7 @@ export const Modal: React.FC<ModalProps> = ({
             )}
           </div>
         </div>
+
         <div className="modal-right">
           {route.name === "WalletOptions" &&
             (getWallet ? (
@@ -217,6 +233,7 @@ export const Modal: React.FC<ModalProps> = ({
                 <CloseButton onClick={handleDismissClick} />
               </div>
             ))}
+
           <div className={"modal-body"}>
             {route.name === "AlertMessage" && alertMessage && (
               <AlertMessage
@@ -279,6 +296,7 @@ export const Modal: React.FC<ModalProps> = ({
             )}
             {route.name === "WalletOptions" && (
               <WalletHome
+                isMobile={isMobile}
                 getWallet={getWallet}
                 getThreeWallets={getThreeWallets}
                 onClick={() => {

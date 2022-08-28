@@ -19,6 +19,8 @@
   --error: #DB5555;
   --close-button-color: #262626;
   --spinner-color: #676767;
+  --bottom-section: #ececec;
+  --mobile-text: #3e3e3e;
 }
 
 #near-wallet-selector-modal .dark-theme {
@@ -40,6 +42,8 @@
   --error: #DB5555;
   --close-button-color: #A7A7A7;
   --spinner-color: #FFFFFF;
+  --bottom-section: #131313;
+  --mobile-text: #c1c1c1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,6 +66,8 @@
     --error: #DB5555;
     --close-button-color: #A7A7A7;
     --spinner-color: #FFFFFF;
+    --bottom-section: #131313;
+    --mobile-text: #c1c1c1;
   }
 }
 
@@ -868,5 +874,144 @@
 .nws-modal-wrapper .modal .modal-body .alert-message .connection .success {
   color: #4FD98F;
 }
+
+
+
+  .single-wallet-get {
+    width: 100%;
+    display: flex;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 24px;
+    padding: 12px;
+  }
+
+  .single-wallet-get .icon img {
+    width: 100%;
+    height: auto;
+    max-width: 48px;
+  }
+
+/*************Queries for mobile **********/
+
+@media (max-width: 768px) {
+
+  .nws-modal-wrapper .modal-overlay {
+    background: var(--wallet-selector-backdrop-bg, var(--bottom-section));
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .nws-modal-wrapper .modal .modal-left {
+    padding: 32px 12px;
+  }
+
+  .nws-modal-wrapper .modal {
+     width: 100%;
+     display: block;
+  }
+
+  .nws-modal-wrapper .modal .modal-left {
+    width: 100%;
+    background-color: var(--wallet-selector-content-bg, var(--content-bg));
+  }
+
+  .nws-modal-wrapper .modal .modal-left .modal-body {
+    display: flex;
+    overflow: auto;
+  }
+
+  .nws-modal-wrapper .modal .modal-left .modal-body .wallet-options-wrapper{
+      display: flex;
+  }
+
+  .nws-modal-wrapper .modal .modal-right {
+    width: 100%;
+    background-color: var(--wallet-selector-mobile-bottom-section, var(--bottom-section));
+  }
+
+  .nws-modal-wrapper .modal .modal-right .modal-header h3.middleTitle {
+    text-align: center;
+    font-size: 16px;
+    margin: 4px auto;
+  }
+
+  .nws-modal-wrapper .modal .modal-right .modal-body .content {
+    font-size: 14px;
+    text-align: center;
+    color: var(--mobile-text);
+    margin: 0
+  }
+
+  .nws-modal-wrapper .modal .modal-right .modal-body {
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .nws-modal-wrapper .modal .modal-body button.middleButton {
+    margin: 25px auto 12px auto;
+  }
+
+  .nws-modal-wrapper .modal .modal-header {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .nws-modal-wrapper .modal .modal-header .close-button {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+
+  .nws-modal-wrapper .modal .modal-header h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .nws-modal-wrapper .modal .wallet-options-wrapper .description {
+    display: none;
+  }
+
+  .nws-modal-wrapper .modal .wallet-options-wrapper .options-list {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .nws-modal-wrapper .modal .info {
+    display: none;
+    width: 90px;
+  }
+
+  .single-wallet {
+    display: block;
+    width: 85px;
+  }
+
+  .single-wallet.sidebar .icon {
+    width: 56px;
+    height: 56px;
+    margin:auto;
+  }
+
+  .single-wallet.sidebar .content {
+    width: auto;
+  }
+
+  .single-wallet .content .title {
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}
+
 
 /*# sourceMappingURL=styles.css.map */
